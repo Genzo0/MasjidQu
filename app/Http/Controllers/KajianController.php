@@ -19,17 +19,19 @@ class KajianController extends Controller
     {
 
         
-        // $listKajian;
-
-        // if($request->has('search')){
-        //     // $listKajian = DB::table('masjid')->join('kajian', 'masjid.id', '=', 'kajian.id_masjid')->where(['masjid.nama' => $request->search])->get();
-        //     $kajian = Masjid::joinRelationship('kajian', function ($join) {
-        //         $join->where('nama', $request->search);
-        //     });
-        //     dd($kajian);
-        // } else {
+        if ($request->has('search')){
+            $kataKunci;
+            $kataKunci = strtolower($request->search);
+            $first = Kajian::whereHas('masjid', function($q) use($kataKunci) {
+                $q->where('nama', 'like', '%' . $kataKunci . '%');
+            })->get();
+            $second = Kajian::where('judul_kajian', 'like',  '%' . $kataKunci . '%')->get();
+            $merge = $first->merge($second);
+            $third = Kajian::where('nama_ustaz', 'like', '%' . $kataKunci . '%')->get();
+            $listKajian = $merge->merge($third);
+        } else {
             $listKajian = Kajian::get();
-        // }
+        }
 
         return view('kajian.daftar_kajian', ['listKajian' => $listKajian]);
     }

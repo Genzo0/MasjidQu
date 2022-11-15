@@ -12,4 +12,8 @@ class Masjid extends Model
     protected $table = "masjid";
 
     protected $fillable = ['nama', 'alamat', 'deskripsi', 'foto', 'id_pengurus'];
+
+    public function kajian() {
+        return $this->hasMany(Kajian::class);
+    }
 }
