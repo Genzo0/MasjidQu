@@ -16,11 +16,14 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
+<body style=
+"background-image: url('{{ asset('assets/background.png')}}'); 
+background-repeat: no-repeat;
+background-size: cover;">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand fw-bold" href="{{ url('/') }}">
                     MasjidQu
                 </a>
 
@@ -37,23 +40,23 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('kajian') }}">Kajian</a>
+                        <li class="nav-item me-4">
+                            <a class="nav-link text-dark" href="{{ url('kajian') }}">Kajian</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('masjid') }}">Masjid</a>
+                        <li class="nav-item mx-4">
+                            <a class="nav-link text-dark" href="{{ url('masjid') }}">Masjid</a>
                         </li>
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <li class="nav-item rounded-pill shadow-sm px-4 ms-4 me-3" style="background: #E5E5E5;">
+                                    <a class="nav-link fw-bold text-dark" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <li class="nav-item rounded-pill shadow-sm px-3" style="background: #E5E5E5;">
+                                    <a class="nav-link fw-bold text-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
