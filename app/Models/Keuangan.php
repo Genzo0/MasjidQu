@@ -12,4 +12,8 @@ class Keuangan extends Model
     protected $table = "keuangan";
 
     protected $fillable = ['tanggal', 'pengeluaran', 'pemasukkan', 'saldo', 'keterangan', 'id_masjid'];
+
+    public function masjid(){
+        return $this->belongsTo(Masjid::class, 'id_masjid', 'id');
+    }
 }

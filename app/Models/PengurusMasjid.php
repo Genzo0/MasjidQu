@@ -13,4 +13,8 @@ class PengurusMasjid extends Authenticatable
     protected $table = "pengurus_masjid";
 
     protected $fillable = ['username', 'password'];
+
+    public function masjid(){
+        return $this->hasOne(Masjid::class, 'id');
+    }
 }

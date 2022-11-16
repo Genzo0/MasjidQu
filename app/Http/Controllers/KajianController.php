@@ -7,6 +7,7 @@ use App\Models\Kajian;
 use App\Models\Masjid;
 use Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class KajianController extends Controller
 {
@@ -15,6 +16,12 @@ class KajianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index']);
+    }
+
     public function index(Request $request)
     {
 
@@ -102,7 +109,12 @@ class KajianController extends Controller
      */
     public function edit($id)
     {
+
         $kajian = Kajian::find($id);
+        if (! Gate::allows('isMyAccount', $kajian->masjid)) {
+            abort(403);
+        }
+        
         return view('kajian.form_edit_kajian', ['kajian'=>$kajian]);
     }
 
@@ -152,8 +164,13 @@ class KajianController extends Controller
     public function destroy($id)
     {
         $kajian = Kajian::find($id);
+        if (! Gate::allows('isMyAccount', $kajian->masjid)) {
+            abort(403);
+        }
+            
         $kajian->delete();
 
         return redirect('masjid/'.Auth::user()->id);
+        
     }
 }

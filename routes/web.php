@@ -25,4 +25,4 @@ Route::resource('masjid', MasjidController::class)->except(['create', 'store', '
 
 Route::resource('kajian', KajianController::class)->except(['show']);
 
-Route::resource('keuangan', KeuanganController::class)->except('show');
+Route::resource('keuangan', KeuanganController::class)->except(['index']);

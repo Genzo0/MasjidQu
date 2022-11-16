@@ -7,6 +7,7 @@ use App\Models\Masjid;
 use App\Models\PengurusMasjid;
 use App\Models\Kajian;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Gate;
 
 class MasjidController extends Controller
 {
@@ -15,6 +16,12 @@ class MasjidController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     public function index(Request $request)
     {
         $listMasjid;
@@ -72,6 +79,9 @@ class MasjidController extends Controller
     public function edit($id)
     {
         $masjid = Masjid::find($id);
+        if (! Gate::allows('isMyAccount', $masjid)) {
+            abort(403);
+        }
 
         return view('masjid.form_edit_masjid', ['masjid' => $masjid]);
     }

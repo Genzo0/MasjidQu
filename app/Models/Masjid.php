@@ -16,4 +16,12 @@ class Masjid extends Model
     public function kajian() {
         return $this->hasMany(Kajian::class);
     }
+
+    public function keuangan() {
+        return $this->hasMany(Kajian::class);
+    }
+
+    public function pengurus_masjid(){
+        return this->belongsTo(PengurusMasjid::class, 'id_pengurus');
+    }
 }

@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Providers;
+use Illuminate\Support\Facades\Gate;
+use App\Models\Masjid;
+use Auth;
 
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -25,6 +28,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('isMyAccount', function ($user, Masjid $masjid) {
+            return $user->id === $masjid->id;
+        });
     }
 }
