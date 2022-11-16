@@ -16,7 +16,7 @@
         <a href="masjid/{{$masjid->id}}">Lihat Masjid</a>
     </div>
 @empty
-    <h1>belum data masjid</h1>
+    <p>Belum ada data masjid</p>
 @endforelse
     
 @endsection
