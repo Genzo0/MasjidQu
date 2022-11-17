@@ -4,16 +4,6 @@
 
 <form action="/masjid" method="GET">
     @csrf
-
-    <!-- <span class="input-group form-outline mb-5">
-        <button type="submit" class="btn">
-            <i class="fa fa-search fa-lg"></i>
-        </button>
-        <div class="form-outline">
-            <input type="search" id="search" name="search" class="form-control shadow pe-5"
-            style="border-radius: 50px;" placeholder="Cari Masjid">
-        </div>
-    </span> -->
     <div class="container">
         <div class="row mb-5">
             <div class="col-3">
