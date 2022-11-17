@@ -12,6 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -19,23 +20,23 @@
 <body style=
 "background-image: url('{{ asset('assets/background.png')}}'); 
 background-repeat: no-repeat;
-background-size: cover;">
+background-size: cover;" class="mx-5">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light">
             <div class="container">
-                <a class="navbar-brand fw-bold" href="{{ url('/') }}">
+                <a class="navbar-brand fw-bold " href="{{ url('/') }}">
                     MasjidQu
                 </a>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    @auth
+                    <!-- @auth
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="/masjid/{{auth()->user()->id}}">Profil</a>
                         </li>
                     </ul>
-                    @endauth
+                    @endauth -->
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -61,11 +62,12 @@ background-size: cover;">
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle ms-4" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/masjid/{{auth()->user()->id}}">Profil</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
