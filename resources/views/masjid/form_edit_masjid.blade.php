@@ -4,12 +4,13 @@
     <form action="/masjid/{{$masjid->id}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
+
         <div class="row mb-3">
-            <label for="nama_masjid" class="col-md-4 col-form-label text-md-end">{{ __('nama_masjid') }}</label>
-    
+            <label for="nama_masjid" class="col-md-4 col-form-label text-md-end">{{ __('Nama Masjid') }}</label>
+
             <div class="col-md-6">
-                <input id="nama_masjid" type="text" class="form-control @error('nama_masjid') is-invalid @enderror" name="nama_masjid" value="{{$masjid->nama ? $masjid->nama : ""}}">
-    
+                <input id="nama_masjid" type="text" class="form-control @error('nama_masjid') is-invalid @enderror" name="nama_masjid" value="{{ old('nama_masjid') }}">
+
                 @error('nama_masjid')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -19,11 +20,11 @@
         </div>
     
         <div class="row mb-3">
-            <label for="alamat_masjid" class="col-md-4 col-form-label text-md-end">{{ __('alamat_masjid') }}</label>
-    
+            <label for="alamat_masjid" class="col-md-4 col-form-label text-md-end">{{ __('Alamat Masjid') }}</label>
+
             <div class="col-md-6">
-                <textarea name="alamat_masjid" id="alamat_masjid" cols="30" rows="10">{{$masjid->alamat}}</textarea>
-    
+                <textarea id="alamat_masjid" type="text" class="form-control @error('alamat_masjid') is-invalid @enderror" name="alamat_masjid">{{ old('alamat_masjid') }}</textarea>
+
                 @error('alamat_masjid')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -33,11 +34,11 @@
         </div>
     
         <div class="row mb-3">
-            <label for="deskripsi_masjid" class="col-md-4 col-form-label text-md-end">{{ __('deskripsi_masjid') }}</label>
-    
+            <label for="deskripsi_masjid" class="col-md-4 col-form-label text-md-end">{{ __('Deskripsi Masjid') }}</label>
+
             <div class="col-md-6">
-                <textarea name="deskripsi_masjid" id="deskripsi_masjid" cols="30" rows="10">{{$masjid->deskripsi}}</textarea>
-    
+                <textarea id="deskripsi_masjid" type="text" class="form-control @error('deskripsi_masjid') is-invalid @enderror" name="deskripsi_masjid">{{ old('deskripsi_masjid') }}</textarea>
+
                 @error('deskripsi_masjid')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -47,7 +48,7 @@
         </div>
     
         <div class="row mb-3">
-            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+            <label for="Gambar masjid" class="col-md-4 col-form-label text-md-end">{{ __('Gambar masjid') }}</label>
     
             <div class="col-md-6">
                 <input type="file" name="foto_masjid" id="foto_masjid">

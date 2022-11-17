@@ -65,6 +65,7 @@ class KajianController extends Controller
             'judul_kajian' => 'required',
             'nama_ustaz' => 'required',
             'tanggal' => 'required',
+            
         ]);
 
         $kajian = new Kajian;

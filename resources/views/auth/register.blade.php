@@ -38,12 +38,12 @@
                                 @enderror
                             </div>
                         </div>
-
+                        
                         <div class="row mb-3">
                             <label for="alamat_masjid" class="col-md-4 col-form-label text-md-end">{{ __('Alamat Masjid') }}</label>
 
                             <div class="col-md-6">
-                                <textarea class="form-control" name="alamat_masjid" id="alamat_masjid" cols="30" rows="10"></textarea>
+                                <textarea id="alamat_masjid" type="text" class="form-control @error('alamat_masjid') is-invalid @enderror" name="alamat_masjid">{{ old('alamat_masjid') }}</textarea>
 
                                 @error('alamat_masjid')
                                     <span class="invalid-feedback" role="alert">
@@ -57,7 +57,7 @@
                             <label for="deskripsi_masjid" class="col-md-4 col-form-label text-md-end">{{ __('Deskripsi Masjid') }}</label>
 
                             <div class="col-md-6">
-                                <textarea class="form-control" name="deskripsi_masjid" id="deskripsi_masjid" cols="30" rows="10"></textarea>
+                                <textarea id="deskripsi_masjid" type="text" class="form-control @error('deskripsi_masjid') is-invalid @enderror" name="deskripsi_masjid">{{ old('deskripsi_masjid') }}</textarea>
 
                                 @error('deskripsi_masjid')
                                     <span class="invalid-feedback" role="alert">
