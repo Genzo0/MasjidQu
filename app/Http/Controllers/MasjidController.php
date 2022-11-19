@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Masjid;
-use App\Models\PengurusMasjid;
 use App\Models\Kajian;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Gate;
