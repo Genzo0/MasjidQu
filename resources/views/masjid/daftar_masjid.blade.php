@@ -20,28 +20,28 @@
                 </div>
             </form>
         </div>
-    </div>
-
-    
+    </div>    
 </form>
 
 <div class="container">
     <div class="row">
 @forelse ($listMasjid as $masjid)
         <div class="col-3">
-            <div class="card shadow-sm" style="width: 18rem; height: 25rem; border-radius: 20px;">
+            <div class="card shadow-sm mb-4 bg-transparent" style="width: 19rem; height: 25rem; border-radius: 20px;">
                 <img src="{{ asset('storage/'. $masjid->foto) }}" class="card-img-top" alt="{{ $masjid->nama }}" width="150" height="250"
                 style="border-top-right-radius: 20px; border-top-left-radius: 20px">
                 <div class="card-body">
                     <h5 class="card-title fw-bold">Masjid {{ $masjid->nama }}</h5>
-                    <h6 class="card-text"><i class="fa fa-map-marker mt-1"></i>  {{ $masjid->alamat }}</h6>
+                    <h6 class="card-text"><i class="fa fa-location-dot mt-1"></i>  {{ $masjid->alamat }}</h6>
                     <!-- <a href="masjid/{{$masjid->id}}" class="card-link mt-4" style="float: right">Baca lebih lanjut...</a> -->
                     <a href="masjid/{{$masjid->id}}" class="btn btn-primary mt-3 float-end">Lihat Masjid</a>
                 </div>
             </div>
         </div> 
 @empty
-    <h1 class="position-absolute top-50 start-50 translate-middle">belum ada data masjid</h1>
+    <div>
+        <h1 class="position-absolute top-50 start-50 translate-middle fw">belum ada data masjid</h1>
+    </div>
 @endforelse
     </div> 
 </div>

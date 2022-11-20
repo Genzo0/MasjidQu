@@ -2,48 +2,133 @@
 
 @section('content')
 
-<div class="container">
-    <img src="{{ asset('storage/'. $masjid->foto) }}" alt="{{ $masjid->nama }}" height="150" width="200">
+<div class="container my-4">
+    <div class="row">
+        <div class="col-10 mx-auto">
+          <img src="{{ asset('storage/'. $masjid->foto) }}" class="img-fluid rounded w-100 shadow-sm" alt="{{ $masjid->nama }}" height="500">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 mx-auto mt-4">
+          <h3 class="fw-bold fs-1">Masjid {{ $masjid->nama }}</h3>
+              <p class="mb-5 fs-5">{{ $masjid->deskripsi }}</p>
+        </div>
+    </div>
+    <!-- <img src="{{ asset('storage/'. $masjid->foto) }}" alt="{{ $masjid->nama }}" height="150" width="200">
     <h2>{{ $masjid->nama }}</h2>
     <h4>{{ $masjid->alamat }}</h4>
-    <span>{{ $masjid->deskripsi }}</span>
+    <span>{{ $masjid->deskripsi }}</span> -->
 
     @can('isMyAccount', $masjid)
-        <div>
-            <a href="/masjid/{{$masjid->id}}/edit">Edit</a>
+      <form action="/masjid/{{$masjid->id}}/edit" method="get">
+      @csrf
+        <div class="row">
+            <div class="col-10 mx-auto">
+              <button type="submit" class="btn btn-primary shadow-sm rounded-4 float-end opacity-75" style="width: 120px;">
+                  Edit
+              </button>
+            </div>
         </div>
-    @endcan
-
-    <h2>Jadwal Kajian</h2>
-
-    @can('isMyAccount', $masjid)
-    <div><a href="/kajian/create">Buat kajian</a></div>
-    @endcan
+      </form>
+    @endcan    
     
+    @can('isMyAccount', $masjid)
+    <form action="/kajian/create" method="get">
+      @csrf
+    <div class="col-10 mx-auto mb-4">
+      <button type="submit" class="btn btn-success  shadow-lg rounded-4 float-end opacity-75" style="width: 180px;">
+          <b>Tambah Kajian</b>
+      </button>
+    </div>
+    </form>
+    @endcan
+    <div class="col-10 mx-auto">
+      <h3 class="fw-bold fs-1 mb-3">Jadwal Kajian</h3>
     @forelse ($listKajian as $kajian)
-        <div class="card m-5">
-            <h3>{{$kajian->judul_kajian}}</h3>
-            <h3>{{$kajian->nama_ustaz}}</h3>
-            <h3>{{$kajian->hari}}</h3>
-            <h3>{{$kajian->tanggal}}</h3>
-            <h3>{{$kajian->waktu}}</h3>
-            <h3>{{"Masjid ".$kajian->masjid->nama}}</h3>
-            @can('isMyAccount', $kajian->masjid)
-            <a href="/kajian/{{$kajian->id}}/edit">Edit</a>
-            <form action="/kajian/{{$kajian->id}}" method="POST">
-                @csrf
-                @method('delete')
-                <button type="submit" onclick="return confirm('Apakah yakin ingin menghapus ?')">Delete</button>
-            </form>
-            @endcan
-            
-        </div>
-    @empty
-        <h1>Belum ada data kajian</h1>
-    @endforelse
+          <div class="card mb-3 bg-transparent rounded-4 shadow">
+            <div class="row g-0">
+              <div class="col-6">
+                <img src="{{asset('assets/masjid-detail.svg')}}" class="img-fluid rounded-start w-100">
+              </div>
+              <div class="col-6">
+                <div class="card-body">
+                  <p>
+                    <span>
+                      <i class="fa fa-book-open fa-xl me-1" style="margin-left: -2px;"></i>
+                      {{$kajian->judul_kajian}}
+                    </span>
+                  </p>
+                  <p>
+                    <span>
+                    <i class="far fa-user fa-xl me-2"></i>
+                      {{$kajian->nama_ustaz}}
+                    </span>
+                  </p>
+                  <p>
+                    <span>
+                    <i class="far fa-calendar-check fa-xl me-2"></i>
+                      {{$kajian->hari}}, {{$kajian->tanggal}}
+                    </span>
+                  </p>
+                  <p>
+                    <span>
+                      <i class="far fa-clock fa-xl me-2"></i>
+                      {{$kajian->waktu}} WIB
+                    </span>
+                  </p>
+                  <p>
+                    <span>
+                      <i class="fa fa-location-dot fa-xl me-2" style="margin-left: 2px"></i>
+                      {{"Masjid ".$kajian->masjid->nama}}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-10 mx-auto mb-3">
+                @can('isMyAccount', $kajian->masjid)
+                <form action="/kajian/{{$kajian->id}}" method="POST">
+                  @csrf
+                  @method('delete')
+                  <button type="submit" onclick="return confirm('Apakah yakin ingin menghapus ?')"
+                  class="btn btn-danger shadow rounded-4 float-end opacity-75" style="width: 120px;">
+                  Hapus
+                  </button>
+                </form>
 
-    
-    <div><a href="/keuangan/{{$masjid->id}}">Keuangan</a></div>
-</div>
-    
+                <form action="/kajian/{{$kajian->id}}/edit" method="get">
+                  @csrf
+                <button type="submit" class="btn btn-primary shadow rounded-4 float-end opacity-75 mx-4" style="width: 120px;">
+                    Edit
+                </button>
+                </form>
+                @endcan
+              </div>
+            </div>
+          </div>
+          
+        
+    @empty
+    <div class="card mb-3 bg-transparent rounded-4 shadow p-5">
+      <div class="row g-0">
+        <div class="col-6">
+          <h1 class="position-absolute top-50 start-50 translate-middle fs-5">Belum ada data kajian</h1>
+        </div>
+      </div>
+    </div>
+    @endforelse
+    </div>
+
+    <div class="row">
+        <div class="col-10 mx-auto"><br>
+          <button type="button" class="btn float-end shadow-lg rounded-4">
+            <span>
+              <img src="{{asset('assets/detail-keuangan-icon.svg')}}" style="height: 60px; width: 60px; ">
+              <a href="/keuangan/{{$masjid->id}}" class="fw-bold fs-5 text-decoration-none text-dark">Detail Keuangan</a
+            </span>
+          </button>
+        </div>
+    </div>
+</div>    
 @endsection
