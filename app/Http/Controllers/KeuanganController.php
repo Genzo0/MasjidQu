@@ -34,10 +34,6 @@ class KeuanganController extends Controller
      */
     public function create()
     {
-        $masjid = Masjid::find(Auth::user()->id);
-        if (! Gate::allows('isMyAccount', $masjid)) {
-            abort(403);
-        }
         return view('keuangan.form_buat_keuangan');
     }
 
@@ -100,7 +96,6 @@ class KeuanganController extends Controller
         if (! Gate::allows('isMyAccount', $keuangan->masjid)) {
             abort(403);
         }
-        $keuangan = Keuangan::find($id);
         return view('keuangan.form_edit_keuangan', ['keuangan' => $keuangan]);
     }
 

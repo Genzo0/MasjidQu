@@ -68,14 +68,9 @@ background-size: cover;" class="mx-5">
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/masjid/{{auth()->user()->id}}">Profil</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="dropdown-item">
                                         @csrf
+                                        <button type="submit" onclick="return confirm('Apakah yakin ingin logout ?')">Logout</button>
                                     </form>
                                 </div>
                             </li>
