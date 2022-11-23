@@ -32,11 +32,11 @@
         <div class="col-10 mx-auto mb-3">
             <div class="card mb-2 bg-transparent rounded-4 shadow-sm">
               <div class="row g-0">
-                <div class="col-6">
-                  <img src="img/masjid.svg" class="img-fluid rounded-start h-100">
+                <div class="col-5">
+                  <img src="{{asset('assets/img-kajian.jpg')}}" class="img-fluid rounded-start">
                 </div>
                 <div class="col-6">
-                  <div class="card-body">
+                  <div class="card-body mt-3 ms-2">
                     <p>
                       <span>
                         <i class="fa fa-book-open fa-xl me-1" style="margin-left: -2px;"></i>

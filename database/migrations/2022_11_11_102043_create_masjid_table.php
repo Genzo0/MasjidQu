@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('alamat');
-            $table->string('deskripsi');
+            $table->string('deskripsi', 1000);
             $table->string('foto');
             $table->unsignedBigInteger('id_pengurus');
             $table->foreign('id_pengurus')->references('id')->on('pengurus_masjid');
