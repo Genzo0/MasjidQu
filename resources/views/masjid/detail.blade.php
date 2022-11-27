@@ -14,10 +14,6 @@
               <p class="mb-5 fs-5">{{ $masjid->deskripsi }}</p>
         </div>
     </div>
-    <!-- <img src="{{ asset('storage/'. $masjid->foto) }}" alt="{{ $masjid->nama }}" height="150" width="200">
-    <h2>{{ $masjid->nama }}</h2>
-    <h4>{{ $masjid->alamat }}</h4>
-    <span>{{ $masjid->deskripsi }}</span> -->
 
     @can('isMyAccount', $masjid)
       <form action="/masjid/{{$masjid->id}}/edit" method="get">

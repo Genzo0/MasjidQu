@@ -2,69 +2,70 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
+    <div class="row justify-content-end mt-3">
+        <div class="col-8 fs-1">
+            <p class="text-center position-relative" 
+            style="font-size: 70px; top:27vh">Selamat Datang</p>
+        </div>
+        <div class="col-4">
+            <!-- form login -->
+            <div
+                class="card shadow-sm p-3 position-relative mt-5"
+                style="
+                width: 25rem;
+                background-color: transparent;
+                border-radius: 50px;
+                ">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                <p class="card-title text-center mb-4" style="font-size: 50px">Login</p>
+                <form method="POST" action="{{ route('login') }}">
                         @csrf
+                    <div>
+                        <input
+                            type="username"
+                            class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}""
+                            id="username"
+                            placeholder="Nama Pengguna"
+                        />
+                        @error('username')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    
+                    <div>
+                        <input
+                            type="password"
+                            class="form-control @error('password') is-invalid @enderror mt-4" 
+                            name="password"
+                            placeholder="Kata Sandi"
+                        />
 
-                        <div class="row mb-3">
-                            <label for="username" class="col-md-4 col-form-label text-md-end">{{ __('Username') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}">
-
-                                @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-                            </div>
-                        </div>
-                        <div>
-                            <span>Belum punya akun ? <a href="{{url('register');}}">Register sekarang</a></span>
-                        </div>
-                        <div>
-                            <span>Ingin masuk sebagai tamu ? <a href="{{url('/');}}">Masuk sekarang</a></span>
-                        </div>
-                    </form>
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="d-grid gap-2">
+                    <button
+                        class="btn btn-primary mt-5"
+                        type="submit"
+                        style="background-color: #0094b1;"
+                    >
+                        Login
+                    </button>
+                    </div>
+                </form>
+                <p style="margin-top: 40px">
+                    Belum punya akun?
+                    <a href="{{url('register');}}" class="card-link">Register Sekarang</a>
+                </p>
+                <p class="mt-2">
+                    Masuk sebagai tamu?
+                    <a href="{{url('/');}}" class="card-link">Masuk Sekarang!</a>
+                </p>
                 </div>
             </div>
         </div>
