@@ -2,9 +2,142 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+    <div class="row justify-content-end">
+        <div class="col-8 fs-1">
+            <p class="text-center position-relative" 
+            style="font-size: 70px; top:29vh">Selamat Datang</p>
+        </div>
+        <div class="col-4">
+        <section>
+      <div
+        class="card shadow-sm p-2"
+        style="
+          width: 25rem;
+          background-color: transparent;
+          border-radius: 40px;
+        "
+      >
+        <div class="card-body">
+          <p class="card-title text-center mb-4" style="font-size: 50px">Register</p>
+          <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                @csrf
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control @error('username') is-invalid @enderror " 
+                name="username" 
+                id = "username"
+                value="{{ old('username') }}"
+                placeholder="Nama Pengguna"
+              />
+                @error('username')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control @error('nama_masjid') is-invalid @enderror" 
+                name="nama_masjid" 
+                value="{{ old('nama_masjid') }}"
+                id="nama_masjid"
+                placeholder="Nama Masjid"
+              />
+                @error('nama_masjid')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class=" mb-3">
+              <!-- <label for="exampleInputEmail1" class="form-label"
+                >Username</label
+              > -->
+              <input
+                type="text"
+                class="form-control @error('alamat_masjid') is-invalid @enderror" 
+                name="alamat_masjid" 
+                value="{{ old('alamat_masjid') }}"
+                id="alamat_masjid"
+                placeholder="Alamat Masjid"
+              />
+
+              @error('alamat_masjid')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control @error('deskripsi_masjid') is-invalid @enderror" 
+                name="deskripsi_masjid"
+                id="deskripsi_masjid"
+                placeholder="Deskripsi masjid"
+              />
+              @error('deskripsi_masjid')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="mb-3">
+              <input
+                type="password"
+                class="form-control @error('password') is-invalid @enderror" 
+                name="password"
+                id="password"
+                placeholder="Kata Sandi"
+              />
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="mb-3">
+              <input
+                type="password"
+                class="form-control @error('password') is-invalid @enderror"
+                name="password_confirmation"
+                id="password-confirm"
+                placeholder="Konfirmasi Kata Sandi"
+              />
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div>
+                <input type="file" name="foto_masjid" id="foto_masjid">
+            </div>
+            <div class="d-grid gap-2">
+              <button
+                class="btn btn-primary mt-4"
+                type="submit"
+                style="background-color: #0094b1"
+              >
+                Register
+              </button>
+            </div>
+          </form>
+          <p style="margin-top: 40px">
+            Sudah punya akun?
+            <a href="{{url('login');}}" class="card-link">Login Sekarang</a>
+          </p>
+          <p>
+            Masuk sebagai tamu?
+            <a href="{{url('/');}}" class="card-link">Masuk Sekarang!</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+            <!-- <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
@@ -111,7 +244,7 @@
                     <div>
                         <span>Ingin masuk sebagai tamu ? <a href="{{url('/');}}">Masuk sekarang</a></span>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
