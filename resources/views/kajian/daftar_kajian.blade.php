@@ -74,7 +74,7 @@
         </div>
     @empty
     <div>
-        <h1 class="position-absolute top-50 start-50 translate-middle fw">belum ada data kajian</h1>
+        <h3 class="position-absolute top-50 start-50 translate-middle fw">belum ada data kajian</h1>
     </div>
     @endforelse
 </div>

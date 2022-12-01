@@ -1,29 +1,60 @@
 @extends('../layouts/app')
 
 @section('content')
-
-    @can('isMyAccount', $masjid)
-        <a href="/keuangan/create">Tambah laporan keuangan</a>
-    @endauth
-    
-    @forelse ($listKeuangan as $keuangan)
-        <div class="card m-5">
-            <h4>{{$keuangan->tanggal}}</h4>
-            <h4>{{$keuangan->pengeluaran}}</h4>
-            <h4>{{$keuangan->pemasukkan}}</h4>
-            <h4>{{$keuangan->saldo}}</h4>
-            <h4>{{$keuangan->keterangan}}</h4>
-            @can('isMyAccount', $keuangan->masjid)
-                <a href="/keuangan/{{$keuangan->id}}/edit">Edit</a>
-                <form action="/keuangan/{{$keuangan->id}}" method="POST">
-                    @csrf
-                    @method('delete')
-                    <button type="submit" onclick="return confirm('Apakah yakin ingin menghapus ?')">hapus</button>
-                </form>  
+    <div class="container">
+        <div class="container shadow-lg p-4" style="border-radius: 1.5rem">
+        <h1 class="text-center fw-bold" style="margin-bottom: 4rem">Laporan Keuangan</h1>
+        
+        @can('isMyAccount', $masjid)
+            <form action="/keuangan/create" method="GET">
+                @csrf
+                <button class="btn btn-primary mb-3" type="submit">Tambah Laporan Keuangan</button>
+            </form>
+        @endauth
+        
+        <table class="table table-bordered">
+        <thead>
+            <tr class="text-center">
+            <th scope="col">Tanggal</th>
+            <th scope="col">Pengeluaran</th>
+            <th scope="col">Pemasukan</th>
+            <th scope="col">Saldo</th>
+            <th scope="col">Keterangan</th>
+            @can('isMyAccount', $masjid)
+                <th scope="col" colspan="2">Aksi</th>
             @endcan
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($listKeuangan as $keuangan)
+                <tr>
+                <th scope="row">{{$keuangan->tanggal}}</th>
+                <td>{{$keuangan->pengeluaran}}</td>
+                <td>{{$keuangan->pemasukkan}}</td>
+                <td>{{$keuangan->saldo}}</td>
+                <td>{{$keuangan->keterangan}}</td>
+                
+                @can('isMyAccount', $keuangan->masjid)
+                <td>
+                    <form action="/keuangan/{{$keuangan->id}}/edit" method="GET" style="float: left">
+                        @csrf
+                        <button class="btn btn-primary me-2" style="width: 4rem" type="submit">Edit</button>
+                    </form>
+                
+                    <form action="/keuangan/{{$keuangan->id}}" method="POST">
+                        @csrf
+                        @method('delete')
+                        <button class="btn btn-danger" style="width: 4rem" type="submit">Hapus</button>
+                    </form>
+                </td>
+                @endcan
+                
+            @empty
+                <th scope="row" colspan="6" class="text-center p-5">Belum ada data keuangan</th>
+            @endforelse
+        </tbody>
+        </table>
         </div>
-    @empty
-        <h1>Belum ada data keuangan</h1>
-    @endforelse
-
+        
+    </div>
 @endsection

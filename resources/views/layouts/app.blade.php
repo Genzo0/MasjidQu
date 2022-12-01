@@ -67,11 +67,11 @@ background-size: cover;" class="mx-5">
                                     {{ Auth::user()->username }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/masjid/{{auth()->user()->id}}">Profil</a>
+                                <div class="dropdown-menu dropdown-menu-end bg-transparent shadow" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/masjid/{{auth()->user()->id}}">&nbsp;&nbsp;Profil</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="dropdown-item">
                                         @csrf
-                                        <button type="submit" onclick="return confirm('Apakah yakin ingin logout ?')">Logout</button>
+                                        <button type="submit" class="bg-transparent border-0" onclick="return confirm('Apakah yakin ingin logout ?')">Logout</button>
                                     </form>
                                 </div>
                             </li>

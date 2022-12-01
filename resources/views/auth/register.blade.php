@@ -28,7 +28,7 @@
                 name="username" 
                 id = "username"
                 value="{{ old('username') }}"
-                placeholder="Nama Pengguna"
+                placeholder="Nama Pengguna*"
               />
                 @error('username')
                     <span class="invalid-feedback" role="alert">
@@ -43,7 +43,7 @@
                 name="nama_masjid" 
                 value="{{ old('nama_masjid') }}"
                 id="nama_masjid"
-                placeholder="Nama Masjid"
+                placeholder="Nama Masjid*"
               />
                 @error('nama_masjid')
                     <span class="invalid-feedback" role="alert">
@@ -61,7 +61,7 @@
                 name="alamat_masjid" 
                 value="{{ old('alamat_masjid') }}"
                 id="alamat_masjid"
-                placeholder="Alamat Masjid"
+                placeholder="Alamat Masjid*"
               />
 
               @error('alamat_masjid')
@@ -76,7 +76,7 @@
                 class="form-control @error('deskripsi_masjid') is-invalid @enderror" 
                 name="deskripsi_masjid"
                 id="deskripsi_masjid"
-                placeholder="Deskripsi masjid"
+                placeholder="Deskripsi Masjid*"
               />
               @error('deskripsi_masjid')
                     <span class="invalid-feedback" role="alert">
@@ -90,7 +90,7 @@
                 class="form-control @error('password') is-invalid @enderror" 
                 name="password"
                 id="password"
-                placeholder="Kata Sandi"
+                placeholder="Kata Sandi*"
               />
                 @error('password')
                     <span class="invalid-feedback" role="alert">
@@ -104,7 +104,7 @@
                 class="form-control @error('password') is-invalid @enderror"
                 name="password_confirmation"
                 id="password-confirm"
-                placeholder="Konfirmasi Kata Sandi"
+                placeholder="Konfirmasi Kata Sandi*"
               />
                 @error('password')
                     <span class="invalid-feedback" role="alert">
@@ -112,7 +112,8 @@
                     </span>
                 @enderror
             </div>
-            <div>
+            <div class="form-control input-group">
+                <p class="opacity-75">Foto Masjid</p>
                 <input type="file" name="foto_masjid" id="foto_masjid">
             </div>
             <div class="d-grid gap-2">
