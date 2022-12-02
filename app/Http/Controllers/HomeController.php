@@ -22,6 +22,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home', ['masjid'=>Masjid::find(Auth::user()->id)]);
+        if(Auth::check()){
+            return view('home', ['masjid'=>Masjid::find(Auth::user()->id)]);
+        }else{
+            return view('home');
+        }
+        
     }
 }

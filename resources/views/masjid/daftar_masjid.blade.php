@@ -28,7 +28,7 @@
 @forelse ($listMasjid as $masjid)
         <div class="col-3">
             <div class="card shadow-sm mb-4 bg-transparent" style="width: 19rem; height: 25rem; border-radius: 20px;">
-                <img src="{{ asset('storage/'. $masjid->foto) }}" class="card-img-top" alt="{{ $masjid->nama }}" width="150" height="250"
+                <img src="{{ asset('storage/'. $masjid->foto) }}" class="card-img-top" alt="{{ $masjid->nama }}" width="100" height="250"
                 style="border-top-right-radius: 20px; border-top-left-radius: 20px">
                 <div class="card-body">
                     <h5 class="card-title fw-bold">Masjid {{ $masjid->nama }}</h5>
