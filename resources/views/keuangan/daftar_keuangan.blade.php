@@ -3,7 +3,8 @@
 @section('content')
     <div class="container">
         <div class="container shadow-lg p-4" style="border-radius: 1.5rem">
-        <h1 class="text-center fw-bold" style="margin-bottom: 4rem">Laporan Keuangan</h1>
+        <h1 class="text-center fw-bolder">Laporan Keuangan</h1>
+        <h3 class="text-center fw-bold" style="margin-bottom: 4.5rem">Masjid {{$masjid->nama}}</h3>
         
         @can('isMyAccount', $masjid)
             <form action="/keuangan/create" method="GET">
