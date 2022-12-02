@@ -28,20 +28,20 @@
         <tbody>
             @forelse ($listKeuangan as $keuangan)
                 <tr>
-                <th scope="row">{{$keuangan->tanggal}}</th>
-                <td>{{$keuangan->pengeluaran}}</td>
-                <td>{{$keuangan->pemasukkan}}</td>
-                <td>{{$keuangan->saldo}}</td>
-                <td>{{$keuangan->keterangan}}</td>
+                <th scope="row">{{$keuangan['tanggal']}}</th>
+                <td>{{$keuangan['pengeluaran']}}</td>
+                <td>{{$keuangan['pemasukkan']}}</td>
+                <td>{{$keuangan['saldo']}}</td>
+                <td>{{$keuangan['keterangan']}}</td>
                 
-                @can('isMyAccount', $keuangan->masjid)
+                @can('isMyAccount', $masjid)
                 <td>
-                    <form action="/keuangan/{{$keuangan->id}}/edit" method="GET" style="float: left">
+                    <form action="/keuangan/{{$keuangan['id']}}/edit" method="GET" style="float: left">
                         @csrf
                         <button class="btn btn-primary me-2" style="width: 4rem" type="submit">Edit</button>
                     </form>
                 
-                    <form action="/keuangan/{{$keuangan->id}}" method="POST">
+                    <form action="/keuangan/{{$keuangan['id']}}" method="POST">
                         @csrf
                         @method('delete')
                         <button class="btn btn-danger" style="width: 4rem" type="submit">Hapus</button>

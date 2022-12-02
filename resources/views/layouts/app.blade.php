@@ -67,7 +67,7 @@ background-size: cover;" class="mx-5">
                                     {{ Auth::user()->username }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end bg-transparent shadow" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-end shadow" style="background: #B8D6E2" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/masjid/{{auth()->user()->id}}">&nbsp;&nbsp;Profil</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="dropdown-item">
                                         @csrf

@@ -80,8 +80,15 @@ class KeuanganController extends Controller
     {
         $masjid = Masjid::find($id);
         $listKeuangan = Keuangan::where('id_masjid','=', $id)->get();
+
+        $arr = $listKeuangan->toArray();
         
-        return view('keuangan.daftar_keuangan', ['listKeuangan' => $listKeuangan, 'masjid' => $masjid]);
+        for($i = 1; $i < count($arr); $i++){
+            $arr[$i]['saldo'] = $arr[$i - 1]['saldo'] + $arr[$i]['pemasukkan'] - $arr[$i]['pengeluaran'];
+        }
+        
+        
+        return view('keuangan.daftar_keuangan', ['listKeuangan' => $arr, 'masjid' => $masjid]);
     }
 
     /**
