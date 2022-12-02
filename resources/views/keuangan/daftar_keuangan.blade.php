@@ -50,7 +50,7 @@
                 @endcan
                 
             @empty
-                <th scope="row" colspan="6" class="text-center p-5">Belum ada data keuangan</th>
+                <th scope="row" colspan="6" class="text-center p-5 opacity-75">Belum ada data keuangan</th>
             @endforelse
         </tbody>
         </table>

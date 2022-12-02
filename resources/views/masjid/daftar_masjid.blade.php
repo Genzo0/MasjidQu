@@ -40,7 +40,7 @@
         </div> 
 @empty
     <div>
-        <h1 class="position-absolute top-50 start-50 translate-middle fw">belum ada data masjid</h1>
+        <h1 class="position-absolute top-50 start-50 translate-middle opacity-75">belum ada data masjid</h1>
     </div>
 @endforelse
     </div> 

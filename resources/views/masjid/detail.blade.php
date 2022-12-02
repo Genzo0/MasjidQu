@@ -117,13 +117,15 @@
     </div>
 
     <div class="row">
-        <div class="col-10 mx-auto"><br>
-          <button type="button" class="btn float-end shadow-lg rounded-4">
-            <span>
-              <img src="{{asset('assets/detail-keuangan-icon.svg')}}" style="height: 60px; width: 60px; ">
-              <a href="/keuangan/{{$masjid->id}}" class="fw-bold fs-5 text-decoration-none text-dark">Detail Keuangan</a
-            </span>
-          </button>
+        <div class="col-10 mx-auto">
+          <form action="/keuangan/{{$masjid->id}}" method="get">
+            <button type="submit" class="btn float-end shadow-lg rounded-4">
+              <span>
+                <img src="{{asset('assets/detail-keuangan-icon.svg')}}" style="height: 60px; width: 60px; ">
+                <a href="/keuangan/{{$masjid->id}}" class="fw-bold fs-5 text-decoration-none text-dark">Detail Keuangan</a>
+              </span>
+            </button>
+          </form>
         </div>
     </div>
 </div>    
