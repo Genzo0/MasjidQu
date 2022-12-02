@@ -28,13 +28,13 @@
 @forelse ($listMasjid as $masjid)
         <div class="col-3">
             <div class="card shadow-sm mb-4 bg-transparent" style="width: 19rem; height: 25rem; border-radius: 20px;">
-                <img src="{{ asset('storage/'. $masjid->foto) }}" class="card-img-top" alt="{{ $masjid->nama }}" width="100" height="250"
+                <img src="{{ asset('storage/'. $masjid->foto) }}" class="card-img-top" alt="{{ $masjid->nama }}" width="100" height="210"
                 style="border-top-right-radius: 20px; border-top-left-radius: 20px">
                 <div class="card-body">
                     <h5 class="card-title fw-bold">Masjid {{ $masjid->nama }}</h5>
                     <h6 class="card-text"><i class="fa fa-location-dot mt-1"></i>  {{ $masjid->alamat }}</h6>
                     <!-- <a href="masjid/{{$masjid->id}}" class="card-link mt-4" style="float: right">Baca lebih lanjut...</a> -->
-                    <a href="masjid/{{$masjid->id}}" class="btn btn-primary mt-3 float-end">Lihat Masjid</a>
+                    <a href="masjid/{{$masjid->id}}" class="btn btn-primary mb-3 me-3 position-absolute bottom-0 end-0">Lihat Masjid</a>
                 </div>
             </div>
         </div> 

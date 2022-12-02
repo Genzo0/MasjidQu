@@ -116,9 +116,12 @@
                 <p class="opacity-75">Foto Masjid</p>
                 <input type="file" name="foto_masjid" id="foto_masjid">
             </div>
-            <div class="d-grid gap-2">
+            <div>
+                <p class="mt-2">* wajib diisi</p>
+            </div>
+            <div class="d-grid">
               <button
-                class="btn btn-primary mt-4"
+                class="btn btn-primary mt-2"
                 type="submit"
                 style="background-color: #0094b1"
               >
