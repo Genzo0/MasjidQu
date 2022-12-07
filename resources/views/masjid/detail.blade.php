@@ -41,10 +41,10 @@
     <div class="col-10 mx-auto">
       <h3 class="fw-bold fs-1 mb-3">Jadwal Kajian</h3>
     @forelse ($listKajian as $kajian)
-          <div class="card mb-3 bg-transparent rounded-4 shadow">
+          <div class="card mb-3 bg-transparent rounded-4 shadow-sm">
             <div class="row g-0">
               <div class="col-6">
-                <img src="{{asset('assets/masjid-detail.svg')}}" class="img-fluid rounded-start w-100">
+                <img src="{{asset('assets/img-kajian.jpg')}}" class="img-fluid rounded-start w-100">
               </div>
               <div class="col-6">
                 <div class="card-body">
@@ -116,7 +116,7 @@
     @endforelse
     </div>
 
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-10 mx-auto">
           <form action="/keuangan/{{$masjid->id}}" method="get">
             <button type="submit" class="btn float-end shadow-lg rounded-4">

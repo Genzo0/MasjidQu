@@ -79,7 +79,7 @@ class KeuanganController extends Controller
     public function show($id)
     {
         $masjid = Masjid::find($id);
-        $listKeuangan = Keuangan::where('id_masjid','=', $id)->get();
+        $listKeuangan = Keuangan::where('id_masjid','=', $id)->orderBy('tanggal', 'asc')->get();
 
         $arr = $listKeuangan->toArray();
         

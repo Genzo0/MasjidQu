@@ -45,7 +45,7 @@
                     <form action="/keuangan/{{$keuangan['id']}}" method="POST">
                         @csrf
                         @method('delete')
-                        <button class="btn btn-danger" style="width: 4rem" type="submit">Hapus</button>
+                        <button class="btn btn-danger" style="width: 4rem" type="submit" onclick="return confirm('Apakah Anda Yakin untuk Menghapus?')">Hapus</button>
                     </form>
                 </td>
                 @endcan
