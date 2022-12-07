@@ -10,7 +10,7 @@
             <h4 class="d-flex justify-content-center mb-5 fw-bold fs-2">Edit Kajian</h4>
             <form>
               <div class="row my-3">
-                <label for="judul_kajian" class="col-2"><img src="{{asset('assets/kajian_img/Book.svg')}}" class="float-end w-50 h-50 mt-1"></label>
+                <label for="judul_kajian" class="col-2"><h6 class="float-end h-50 mt-2">Judul Kajian</h6></label>
                 <div class="col-sm-9">
                     <input id="judul_kajian" type="text" class="form-control @error('judul_kajian') is-invalid @enderror" name="judul_kajian" value="{{ $kajian->judul_kajian }}">
 
@@ -22,7 +22,7 @@
                 </div>
               </div>
               <div class="row my-3">
-                <label for="nama_ustaz" class="col-2"><img src="{{asset('assets/kajian_img/person.svg')}}" class="float-end w-50 h-50 mt-1"></label>
+                <label for="nama_ustaz" class="col-2"><h6 class="float-end h-50 mt-2">Nama Ustaz</h6></label>
                 <div class="col-sm-9">
                     <input id="nama_ustaz" type="text" class="form-control @error('nama_ustaz') is-invalid @enderror" name="nama_ustaz" value="{{ $kajian->nama_ustaz }}">
 
@@ -34,7 +34,7 @@
                 </div>
               </div>
               <div class="row my-3">
-                <label for="tanggal" class="col-2"><img src="{{asset('assets/kajian_img/date.svg')}}" class="float-end w-50 h-50 mt-1"></label>
+                <label for="tanggal" class="col-2"><h6 class="float-end h-50 mt-2">Tanggal</h6></label>
                 <div class="col-sm-9">
                     <input id="tanggal" type="datetime-local" class="form-control @error('tanggal') is-invalid @enderror" name="tanggal" value="{{ $kajian->tanggal.'T'.$kajian->waktu }}">
 
